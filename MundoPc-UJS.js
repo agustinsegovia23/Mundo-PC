@@ -112,7 +112,7 @@ class Computadora {
     this._raton = raton;
   }
   toString() {
-    return `Computadora ${this._idComputadora}: ${this._nombre}\n ${this._monitor}\n ${this._raton}\n${this._teclado}`;
+    return `Computadora ${this._idComputadora}: ${this._nombre}\n${this._monitor}\n ${this._raton}\n${this._teclado}`;
   }
 }
 
@@ -121,3 +121,36 @@ let computadora2 = new Computadora("APPLE", monitor2, teclado2, raton2);
 
 console.log(computadora2.toString());
 console.log(computadora1.toString());
+
+class Orden {
+  static contadorOrdenes = 0;
+
+  constructor() {
+    this._idOrden = ++Orden.contadorOrdenes;
+    this._computadoras = [];
+  }
+
+  get idOrden() {
+    return this._idOrden;
+  }
+
+  agregarComputadora(computadora) {
+    this._computadoras.push(computadora);
+  }
+
+  mostrarOrden() {
+    let computadorasOrden = "";
+    for (let computadora of this._computadoras) {
+      computadorasOrden += `${computadora}`;
+    }
+
+    console.log(`Orden: ${this._idOrden}, Computadoras:\n${computadorasOrden}`);
+  }
+}
+
+let orden1 = new Orden();
+
+orden1.agregarComputadora(computadora1);
+orden1.agregarComputadora(computadora2);
+
+orden1.mostrarOrden();
