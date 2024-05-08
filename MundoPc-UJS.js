@@ -117,4 +117,7 @@ class Computadora {
 }
 
 let computadora1 = new Computadora("Hp", monitor1, teclado2, raton2);
+let computadora2 = new Computadora("APPLE", monitor2, teclado2, raton2);
+
+console.log(computadora2.toString());
 console.log(computadora1.toString());
